@@ -1,6 +1,6 @@
 {
   imports = [
-    (import ./colorschemes/default.nix "catppuccin")
+    (import ./colorschemes "catppuccin")
     ./autocommands.nix
     ./completions.nix
     ./keymaps.nix
