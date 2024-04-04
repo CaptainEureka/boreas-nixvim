@@ -1,5 +1,5 @@
 {
-  nixvim.options = {
+  options = {
     termguicolors = true;
     number = true;
     relativenumber = true;
