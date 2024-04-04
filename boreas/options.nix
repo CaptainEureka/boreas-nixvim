@@ -1,5 +1,5 @@
 {
-  options = {
+  opts = {
     termguicolors = true;
     number = true;
     relativenumber = true;
