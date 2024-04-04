@@ -1,5 +1,3 @@
-{pkgs, ...}: {
-  extraPlugins = [
-    pkgs.vimPlugins.smart-splits-nvim
-  ];
+{
+  plugins.smart-splits.enable = true;
 }
