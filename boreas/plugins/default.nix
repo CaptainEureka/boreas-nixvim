@@ -53,11 +53,12 @@
     };
   };
 
-  plugins.rust-tools = {
+  plugins.rustaceanvim = {
     enable = true;
-    server = {
-      files.excludeDirs = [".devenv" ".direnv"];
-    };
+    server.settings.files.excludeDirs = [
+      ".devenv"
+      ".direnv"
+    ];
     extraOptions = {
       completion = {autocomplete = true;};
     };
