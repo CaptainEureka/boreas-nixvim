@@ -10,6 +10,7 @@
     ./lsp
     ./lualine
     ./noice
+    ./navic
     ./ollama
     ./smart-splits
     ./telescope
@@ -26,13 +27,6 @@
     neogit.enable = true;
     fugitive.enable = true;
     hmts.enable = true;
-    navic = {
-      enable = true;
-      lsp.preference = [
-        "nil_ls"
-        "efm"
-      ];
-    };
     nix.enable = true;
     nvim-autopairs.enable = true;
     surround.enable = true;
