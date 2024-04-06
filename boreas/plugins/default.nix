@@ -10,6 +10,7 @@
     ./lsp
     ./lualine
     ./neogen
+    ./neotest
     ./noice
     ./navic
     ./ollama
