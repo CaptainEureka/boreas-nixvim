@@ -22,5 +22,5 @@ jobs:
         id: update
         uses: DeterminateSystems/update-flake-lock@v21
         with:
-          pr_title: ":snowflake: Update flake.lock"
+          pr-title: ":snowflake: Update flake.lock"
           token: ${{ secrets.GH_UPDATE_TOKEN }}
