@@ -73,8 +73,4 @@
       "<tab>" = "TAB";
     };
   };
-
-  extraPlugins = with pkgs.vimPlugins; [
-    FixCursorHold-nvim
-  ];
 }
