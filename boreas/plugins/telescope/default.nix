@@ -1,23 +1,8 @@
-{pkgs, ...}: {
+{
   plugins.telescope = {
     enable = true;
-    enabledExtensions = [
-      "gh"
-      "ui-select"
-    ];
-    extensionConfig = {
-      ui-select = {
-        __raw = ''
-          require("telescope.themes").get_dropdown {
-            -- other opts
-            layout = "vertical",
-            winblend = 10
-          }'';
-      };
+    extensions = {
+      ui-select.enable = true;
     };
   };
-  extraPlugins = with pkgs.vimPlugins; [
-    telescope-github-nvim
-    telescope-ui-select-nvim
-  ];
 }
