@@ -19,7 +19,6 @@
       flash = true;
       gitsigns = true;
       harpoon = true;
-      hop = true;
       indent_blankline = {
         enabled = true;
         colored_indent_levels = true;

@@ -6,7 +6,6 @@
     ./diffview
     ./efm
     ./hardtime
-    ./hop
     ./lsp
     ./lualine
     ./neogen

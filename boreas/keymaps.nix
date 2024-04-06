@@ -84,42 +84,6 @@ in {
       action = "<CMD>:Alpha<CR>";
       options.desc = "[G]o [H]ome";
     }
-    # Hop keymaps
-    {
-      key = "<leader>f";
-      action = "<CMD>:HopChar1CurrentLineAC<CR>";
-      options.desc = "Replace 'f' with Hop";
-    }
-    {
-      key = "<leader>F";
-      action = "<CMD>:HopChar1CurrentLineBC<CR>";
-      options.desc = "Replace 'F' with Hop";
-    }
-    {
-      key = "<leader>fc";
-      action = "<CMD>:HopChar1<CR>";
-      options.desc = "[H]op [C]har";
-    }
-    {
-      key = "<leader>fl";
-      action = "<CMD>:HopLine<CR>";
-      options.desc = "[H]op [L]ine";
-    }
-    {
-      key = "<leader>fp";
-      action = "<CMD>:HopPattern<CR>";
-      options.desc = "[H]op [P]attern";
-    }
-    {
-      key = "<leader>fv";
-      action = "<CMD>:HopVertical<CR>";
-      options.desc = "[H]op [V]ertical";
-    }
-    {
-      key = "<leader>fw";
-      action = "<CMD>:HopWord<CR>";
-      options.desc = "[H]op [W]ord";
-    }
     # Barbar keymaps
     {
       key = "<leader>bc";
