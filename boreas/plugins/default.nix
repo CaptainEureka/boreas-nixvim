@@ -9,6 +9,7 @@
     ./hop
     ./lsp
     ./lualine
+    ./neogen
     ./noice
     ./navic
     ./ollama
@@ -23,10 +24,11 @@
     barbecue.enable = true;
     comment.enable = true;
     flash.enable = true;
-    gitsigns.enable = true;
-    neogit.enable = true;
     fugitive.enable = true;
+    gitsigns.enable = true;
     hmts.enable = true;
+    neogit.enable = true;
+    neoscroll.enable = true;
     nix.enable = true;
     nvim-autopairs.enable = true;
     surround.enable = true;
