@@ -5,10 +5,7 @@
       extraOptions.init_options = {
         documentFormatting = true;
         documentRangeFormatting = true;
-        hover = true;
-        documentSymbol = true;
         codeAction = true;
-        completion = true;
       };
     };
 
@@ -19,20 +16,14 @@
 
     efmls-configs = {
       enable = true;
-      externallyManagedPackages = [
-        "terraform_fmt"
-        "black"
-        "isort"
-        "flake8"
-        "prettier"
-        "eslint"
-      ];
+      externallyManagedPackages = ["terraform_fmt"];
       setup = {
-        all = {linter = "vale";};
+        all.linter = ["vale" "codespell"];
         bash = {
           formatter = "beautysh";
           linter = "shellcheck";
         };
+        gitcommit.linter = "gitlint";
         json = {
           formatter = "jq";
           linter = "jq";
@@ -46,11 +37,11 @@
           linter = "statix";
         };
         python = {
-          formatter = ["black" "isort"];
-          linter = "flake8";
+          formatter = "ruff";
+          linter = "ruff";
         };
-        rust = {formatter = "rustfmt";};
-        scala = {formatter = "scalafmt";};
+        rust.formatter = "rustfmt";
+        scala.formatter = "scalafmt";
         sh = {
           formatter = "beautysh";
           linter = "shellcheck";
@@ -60,16 +51,16 @@
           linter = "sqlfluff";
         };
         typescript = {
-          formatter = ["prettier" "eslint"];
+          formatter = "prettier";
           linter = "eslint";
         };
-        terraform = {formatter = "terraform_fmt";};
-        toml = {formatter = "taplo";};
+        terraform.formatter = "terraform_fmt";
+        toml.formatter = "taplo";
         yaml = {
           formatter = "yq";
           linter = "yamllint";
         };
-        zsh = {formatter = "beautysh";};
+        zsh.formatter = "beautysh";
       };
     };
   };
