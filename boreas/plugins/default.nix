@@ -66,6 +66,10 @@
     };
   };
 
+  plugins.typescript-tools = {
+    enable = true;
+  };
+
   plugins.which-key = {
     enable = true;
     keyLabels = {

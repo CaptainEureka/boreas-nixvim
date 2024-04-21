@@ -53,7 +53,7 @@
         taplo.enable = true;
         tailwindcss.enable = true;
         typst-lsp.enable = true;
-        tsserver.enable = true;
+        # tsserver.enable = true;
         terraformls.enable = true;
         sqls.enable = true;
         yamlls.enable = true;
