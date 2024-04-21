@@ -46,8 +46,8 @@
           linter = "statix";
         };
         python = {
-          formatter = ["black" "isort"];
-          linter = "flake8";
+          formatter = ["ruff"];
+          linter = "ruff";
         };
         rust = {formatter = "rustfmt";};
         scala = {formatter = "scalafmt";};

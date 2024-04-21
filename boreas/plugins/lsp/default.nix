@@ -28,8 +28,21 @@
         marksman.enable = true;
         nil_ls.enable = true;
         lua-ls.enable = true;
-        pyright.enable = true;
-        ruff-lsp.enable = true;
+        ruff = {
+          enable = true;
+          extraOptions = {
+            capabilities.hoverProvider = false;
+          };
+        };
+        pyright = {
+          enable = true;
+          extraOptions = {
+            settings = {
+              pyright.disableOrganizeImports = true;
+              python.analysis.ignore = ''{ "*" }'';
+            };
+          };
+        };
         taplo.enable = true;
         tailwindcss.enable = true;
         typst-lsp.enable = true;
