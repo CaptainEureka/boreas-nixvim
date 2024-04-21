@@ -1,4 +1,4 @@
-{
+{helpers, ...}: {
   plugins = {
     lsp = {
       enable = true;
@@ -31,7 +31,14 @@
         ruff = {
           enable = true;
           extraOptions = {
-            capabilities.hoverProvider = false;
+            on_attach = helpers.mkRaw ''
+              function(client, bufnr)
+                  if client.name == 'ruff' then
+                    -- Disable hover in favor of Pyright
+                    client.server_capabilities.hoverProvider = false
+                  end
+                end
+            '';
           };
         };
         pyright = {
@@ -39,7 +46,7 @@
           extraOptions = {
             settings = {
               pyright.disableOrganizeImports = true;
-              python.analysis.ignore = ''{ "*" }'';
+              python.analysis.ignore = helpers.mkRaw ''{ "*" }'';
             };
           };
         };
