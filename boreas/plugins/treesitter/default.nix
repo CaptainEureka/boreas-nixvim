@@ -18,7 +18,7 @@
 
     treesitter-context = {
       enable = true;
-      multilineThreshold = 1;
+      settings.multiline_threshold = 1;
     };
 
     treesitter-textobjects.enable = true;
