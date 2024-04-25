@@ -1,3 +1,0 @@
-{
-  plugins.ollama.enable = true;
-}

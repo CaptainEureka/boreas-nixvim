@@ -2,7 +2,6 @@
   imports = [
     # ./alpha
     ./barbar
-    ./copilot
     ./diffview
     ./efm
     ./hardtime
@@ -12,7 +11,6 @@
     ./neotest
     ./noice
     ./navic
-    ./ollama
     ./smart-splits
     ./telescope
     ./toggleterm
