@@ -55,11 +55,12 @@
 
   plugins.rustaceanvim = {
     enable = true;
-    server.settings.files.excludeDirs = [
-      ".devenv"
-      ".direnv"
-    ];
-    extraOptions = {
+    settings = {
+      server.settings.files.excludeDirs = [
+        ".devenv"
+        ".direnv"
+      ];
+
       completion = {autocomplete = true;};
     };
   };

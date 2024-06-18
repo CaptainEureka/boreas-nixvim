@@ -1,6 +1,6 @@
 {
   plugins.barbar = {
     enable = true;
-    autoHide = true;
+    settings.auto_hide = 1;
   };
 }

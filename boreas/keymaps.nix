@@ -1,4 +1,8 @@
-{lib, ...}: let
+{
+  lib,
+  helpers,
+  ...
+}: let
   defaultOptions = {
     silent = true;
     nowait = true;
@@ -28,7 +32,7 @@ in {
     }
     {
       key = "<leader>/";
-      action = ''
+      action = helpers.mkRaw ''
         function()
           require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_ivy({
             previewer=false
@@ -36,7 +40,6 @@ in {
         end
       '';
       options.desc = "[/] Fuzzy search in current buffer";
-      lua = true;
     }
     {
       key = "<leader>sb";
@@ -161,77 +164,65 @@ in {
     # -- resize splits
     {
       key = "<A-h>";
-      action = "require('smart-splits').resize_left";
+      action = helpers.mkRaw "require('smart-splits').resize_left";
       options.desc = "Resize left";
-      lua = true;
     }
     {
       key = "<A-j>";
-      action = "require('smart-splits').resize_down";
+      action = helpers.mkRaw "require('smart-splits').resize_down";
       options.desc = "Resize down";
-      lua = true;
     }
     {
       key = "<A-k>";
-      action = "require('smart-splits').resize_up";
+      action = helpers.mkRaw "require('smart-splits').resize_up";
       options.desc = "Resize up";
-      lua = true;
     }
     {
       key = "<A-l>";
-      action = "require('smart-splits').resize_right";
+      action = helpers.mkRaw "require('smart-splits').resize_right";
       options.desc = "Resize right";
-      lua = true;
     }
     # -- moving between splits
     {
       key = "<C-h>";
-      action = "require('smart-splits').move_cursor_left";
+      action = helpers.mkRaw "require('smart-splits').move_cursor_left";
       options.desc = "Move left";
-      lua = true;
     }
     {
       key = "<C-j>";
-      action = "require('smart-splits').move_cursor_down";
+      action = helpers.mkRaw "require('smart-splits').move_cursor_down";
       options.desc = "Move down";
-      lua = true;
     }
     {
       key = "<C-k>";
-      action = "require('smart-splits').move_cursor_up";
+      action = helpers.mkRaw "require('smart-splits').move_cursor_up";
       options.desc = "Move up";
-      lua = true;
     }
     {
       key = "<C-l>";
-      action = "require('smart-splits').move_cursor_right";
+      action = helpers.mkRaw "require('smart-splits').move_cursor_right";
       options.desc = "Move right";
-      lua = true;
     }
     # -- swapping buffers between splits
     {
       key = "<leader>h";
-      action = "require('smart-splits').swap_buf_left";
+      action = helpers.mkRaw "require('smart-splits').swap_buf_left";
       options.desc = "Swap buffer left";
-      lua = true;
     }
     {
       key = "<leader>j";
-      action = "require('smart-splits').swap_buf_down";
+      action = helpers.mkRaw "require('smart-splits').swap_buf_down";
       options.desc = "Swap buffer down";
-      lua = true;
     }
     {
       key = "<leader>k";
-      action = "require('smart-splits').swap_buf_up";
+      action = helpers.mkRaw "require('smart-splits').swap_buf_up";
       options.desc = "Swap buffer up";
-      lua = true;
     }
     {
       key = "<leader>l";
-      action = "require('smart-splits').swap_buf_right";
+      action = helpers.mkRaw "require('smart-splits').swap_buf_right";
       options.desc = "Swap buffer right";
-      lua = true;
     }
     # -- Neogit
     {
