@@ -56,7 +56,7 @@
   plugins.rustaceanvim = {
     enable = true;
     settings = {
-      server.settings.files.excludeDirs = [
+      server.default_settings.files.excludeDirs = [
         ".devenv"
         ".direnv"
       ];
