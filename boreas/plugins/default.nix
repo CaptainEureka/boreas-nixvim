@@ -71,7 +71,7 @@
 
   plugins.which-key = {
     enable = true;
-    keyLabels = {
+    settings.key-labels = {
       "<space>" = "SPC";
       "<leader>" = "SPC";
       "<cr>" = "RET";
