@@ -1,15 +1,78 @@
-let
-  inherit (import ./themes.nix) simple;
-in {
+{
   plugins.lualine = {
     enable = true;
-    inherit (simple) componentSeparators;
-    inherit (simple) sectionSeparators;
-    inherit (simple) sections;
-    inherit (simple) inactiveSections;
-    globalstatus = true;
-    extensions = [
-      "trouble"
-    ];
+    settings = {
+      extensions = [
+        "trouble"
+      ];
+      options = {
+        globalstatus = true;
+        component_separators = {
+          right = "";
+          left = "";
+        };
+        section_separators = {
+          left = "";
+          right = "";
+        };
+      };
+      sections = {
+        lualine_a = [
+          {
+            name = "mode";
+            icon = "";
+            padding = {
+              right = 0;
+              left = 1;
+            };
+          }
+        ];
+        lualine_b = [
+          {
+            name = "branch";
+            icon = "";
+          }
+          {name = "diff";}
+        ];
+        lualine_c = [
+          {name = "filename";}
+          {
+            name = "diagnostics";
+            extraConfig = {
+              sources = [
+                "nvim_lsp"
+              ];
+            };
+          }
+          {
+            name = "Gitsigns blame_line";
+          }
+        ];
+        lualine_x = [
+          {name = "filetype";}
+          {name = "overseer";}
+        ];
+        lualine_y = [
+          {name = "progress";}
+        ];
+        lualine_z = [
+          {
+            name = "location";
+            padding = {
+              right = 1;
+              left = 0;
+            };
+          }
+        ];
+      };
+      inactive_sections = {
+        lualine_a = [{name = "filename";}];
+        lualine_b = [{name = "";}];
+        lualine_c = [{name = "";}];
+        lualine_x = [{name = "";}];
+        lualine_y = [{name = "";}];
+        lualine_z = [{name = "location";}];
+      };
+    };
   };
 }
