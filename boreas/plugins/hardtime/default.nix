@@ -2,14 +2,16 @@
   plugins = {
     hardtime = {
       enable = true;
-      enabled = true;
-      allowDifferentKey = true;
-      maxCount = 5;
-      disableMouse = false;
-      disabledFiletypes = [
-        "neo-tree"
-        "toggleterm"
-      ];
+      settings = {
+        enabled = true;
+        disable_mouse = false;
+        max_count = 5;
+        allow_different_key = true;
+        disable_filetypes = [
+          "neo-tree"
+          "toggleterm"
+        ];
+      };
     };
   };
 }
