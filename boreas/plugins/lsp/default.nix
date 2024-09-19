@@ -25,6 +25,7 @@
         html.enable = true;
         htmx.enable = true;
         jsonls.enable = true;
+        metals.enable = true;
         marksman.enable = true;
         nil-ls.enable = true;
         lua-ls.enable = true;
