@@ -23,7 +23,7 @@
         gopls.enable = true;
         gleam.enable = true;
         html.enable = true;
-        htmx.enable = true;
+        htmx.enable = false;
         jsonls.enable = true;
         metals.enable = true;
         marksman.enable = true;
