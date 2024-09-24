@@ -23,9 +23,7 @@
         gopls.enable = true;
         gleam.enable = true;
         html.enable = true;
-        htmx.enable = false;
         jsonls.enable = true;
-        metals.enable = true;
         marksman.enable = true;
         nil-ls.enable = true;
         lua-ls.enable = true;
@@ -54,7 +52,6 @@
         taplo.enable = true;
         tailwindcss.enable = true;
         typst-lsp.enable = true;
-        # tsserver.enable = true;
         terraformls.enable = true;
         sqls.enable = true;
         yamlls.enable = true;
