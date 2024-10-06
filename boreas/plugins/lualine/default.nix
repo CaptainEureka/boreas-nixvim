@@ -2,10 +2,73 @@
   plugins.lualine = {
     enable = true;
     settings = {
-      extensions = [
-        "trouble"
-      ];
       options = {
+        theme = {
+          normal = {
+            a = {
+              bg = "#b4befe";
+              fg = "#313244";
+            };
+            b = {
+              bg = "#313244";
+              fg = "#b4befe";
+            };
+            c = {
+              bg = "#181825";
+              fg = "#b4befe";
+            };
+          };
+          command = {
+            a = {
+              bg = "#fab387";
+              fg = "#313244";
+            };
+            b = {
+              bg = "#313244";
+              fg = "#fab387";
+            };
+          };
+          insert = {
+            a = {
+              bg = "#a6e3a1";
+              fg = "#313244";
+            };
+            b = {
+              bg = "#313244";
+              fg = "#a6e3a1";
+            };
+          };
+          visual = {
+            a = {
+              bg = "#f2cdcd";
+              fg = "#313244";
+            };
+            b = {
+              bg = "#313244";
+              fg = "#f2cdcd";
+            };
+          };
+          terminal = {
+            a = {
+              bg = "#94e2d5";
+              fg = "#313244";
+            };
+            b = {
+              bg = "#313244";
+              fg = "#94e2d5";
+            };
+          };
+          replace = {
+            a = {
+              bg = "#f38ba8";
+              fg = "#313244";
+            };
+            b = {
+              bg = "#313244";
+              fg = "#f38ba8";
+            };
+          };
+        };
         globalstatus = true;
         component_separators = {
           right = "";
@@ -16,62 +79,97 @@
           right = "";
         };
       };
+      extensions = [
+        "oil"
+        "trouble"
+        "quickfix"
+      ];
       sections = {
         lualine_a = [
           {
-            name = "mode";
-            icon = "";
-            padding = {
-              right = 0;
-              left = 1;
-            };
+            __unkeyed = "mode";
+            icon = "";
           }
         ];
         lualine_b = [
           {
-            name = "branch";
-            icon = "";
+            __unkeyed = "branch";
+            icon = "";
           }
-          {name = "diff";}
+          "diff"
         ];
         lualine_c = [
-          {name = "filename";}
           {
-            name = "diagnostics";
-            extraConfig = {
-              sources = [
-                "nvim_lsp"
-              ];
+            __unkeyed = "diagnostics";
+            symbols = {
+              error = "";
+              warn = "";
+              info = "";
+              hint = "";
             };
-          }
-          {
-            name = "Gitsigns blame_line";
           }
         ];
         lualine_x = [
-          {name = "filetype";}
-          {name = "overseer";}
+          # Show active language server
+          {
+            __unkeyed.__raw = ''
+              function()
+                  local msg = ""
+                  local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
+                  local clients = vim.lsp.get_active_clients()
+                  if next(clients) == nil then
+                      return msg
+                  end
+                  for _, client in ipairs(clients) do
+                      local filetypes = client.config.filetypes
+                      if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
+                          return client.name
+                      end
+                  end
+                  return msg
+              end
+            '';
+            icon = "";
+            color.fg = "#80859d";
+          }
         ];
         lualine_y = [
-          {name = "progress";}
+          {
+            __unkeyed = "filetype";
+            colored = false;
+            icon_only = true;
+            separator = "";
+            padding = 0;
+            color.bg = "#eba0ac";
+            color.fg = "#1e1e2e";
+          }
+          {
+            __unkeyed = "filename";
+            color.bg = "#eba0ac";
+            padding = {
+              left = 0;
+              right = 1;
+            };
+            color.fg = "#1e1e2e";
+          }
         ];
         lualine_z = [
           {
-            name = "location";
+            __unkeyed.__raw = ''
+              function ()
+                  local cwd = vim.fn.getcwd()
+                  return vim.fn.fnamemodify(cwd, ":t")
+              end
+            '';
+            icon = "󰉖";
             padding = {
-              right = 1;
               left = 0;
+              right = 1;
             };
+            color.bg = "#f2cdcd";
+            color.fg = "#1e1e2e";
           }
         ];
-      };
-      inactive_sections = {
-        lualine_a = [{name = "filename";}];
-        lualine_b = [{name = "";}];
-        lualine_c = [{name = "";}];
-        lualine_x = [{name = "";}];
-        lualine_y = [{name = "";}];
-        lualine_z = [{name = "location";}];
       };
     };
   };
