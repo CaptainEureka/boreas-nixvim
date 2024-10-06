@@ -29,7 +29,7 @@
     neoscroll.enable = true;
     nix.enable = true;
     nvim-autopairs.enable = true;
-    surround.enable = true;
+    vim-surround.enable = true;
     trouble.enable = true;
     typst-vim.enable = true;
   };
