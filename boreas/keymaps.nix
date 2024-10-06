@@ -81,164 +81,81 @@ in {
       action = "<CMD>:Telescope lsp_document_symbols<CR>";
       options.desc = "[S]earch [S]ymbols";
     }
-    # Alpha (Dashboard)
+    # Neotest
     {
-      key = "<leader>gh";
-      action = "<CMD>:Alpha<CR>";
-      options.desc = "[G]o [H]ome";
-    }
-    # Barbar keymaps
-    {
-      key = "<leader>bc";
-      action = "<CMD>:BufferPick<CR>";
-      options.desc = "[B]uffer [C]hoose";
+      key = "<leader>ntr";
+      action = helpers.mkRaw ''
+        function()
+          require("neotest").run.run()
+        end
+      '';
+      options.desc = "[N]eo[T]est [R]un";
     }
     {
-      key = "<leader>bd";
-      action = "<CMD>:BufferPickDelete<CR>";
-      options.desc = "[B]uffer [D]elete pick";
+      key = "<leader>ntf";
+      action = helpers.mkRaw ''
+        function()
+          require("neotest").run.run(vim.fn.expand("%"))
+        end
+      '';
+      options.desc = "[N]eo[T]est [R]un [F]ile";
     }
     {
-      key = "<leader>bx";
-      action = "<CMD>:BufferClose<CR>";
-      options.desc = "[B]uffer [C]lose";
+      key = "<leader>ntw";
+      action = helpers.mkRaw ''
+        function()
+          require("neotest").watch.toggle(vim.fn.expand("%"))
+        end
+      '';
+      options.desc = "[N]eo[T]est [R]un [F]ile";
     }
     {
-      key = "<leader>bn";
-      action = "<CMD>:BufferNext<CR>";
-      options.desc = "[B]uffer [N]ext";
+      key = "<leader>ntw";
+      action = helpers.mkRaw ''
+        function()
+          require("neotest").watch.toggle(vim.fn.expand("%"))
+        end
+      '';
+      options.desc = "[N]eo[T]est [R]un [F]ile";
     }
     {
-      key = "<leader>bp";
-      action = "<CMD>:BufferPrevious<CR>";
-      options.desc = "[B]uffer [P]revious";
-    }
-    # Overseer
-    {
-      key = "<leader>or";
-      action = "<CMD>:OverseerRun<CR>";
-      options.desc = "[O]verseer [R]un";
+      key = "<leader>nts";
+      action = helpers.mkRaw ''
+        function()
+          require("neotest").summary.toggle()
+        end
+      '';
+      options.desc = "[N]eo[T]est [S]ummary";
     }
     {
-      key = "<leader>oo";
-      action = "<CMD>:OverseerToggle<CR>";
-      options.desc = "[O]verseer [O]pen";
-    }
-    {
-      key = "<leader>ot";
-      action = "<CMD>:OverseerTaskAction<CR>";
-      options.desc = "[O]verseer [T]ask Action";
+      key = "<leader>nto";
+      action = helpers.mkRaw ''
+        function ()
+          require("neotest").output_panel.toggle()
+        end
+      '';
+      options.desc = "[N]eo[T]est [O]utput";
     }
     # Trouble keymaps
     {
       key = "<leader>xx";
-      action = "<CMD>:TroubleToggle<CR>";
+      action = "<CMD>:Trouble diagnostics toggle<CR>";
       options.desc = "Trouble";
     }
     {
-      key = "<leader>xw";
-      action = "<CMD>:TroubleToggle workspace_diagnostics<CR>";
-      options.desc = "Trouble [W]orkspace";
-    }
-    {
-      key = "<leader>xd";
-      action = "<CMD>:TroubleToggle document_diagnostics<CR>";
-      options.desc = "Trouble [D]ocument";
-    }
-    {
       key = "<leader>xq";
-      action = "<CMD>:TroubleToggle quickfix<CR>";
+      action = "<CMD>:Trouble qflist toggle<CR>";
       options.desc = "Trouble [Q]uickfix";
     }
     {
       key = "<leader>xl";
-      action = "<CMD>:TroubleToggle loclist<CR>";
+      action = "<CMD>:Trouble loclist toggle<CR>";
       options.desc = "Trouble [L]oclist";
     }
     {
       key = "<leader>xR";
-      action = "<CMD>:TroubleToggle lsp_references<CR>";
+      action = "<CMD>:Trouble lsp_references toggle<CR>";
       options.desc = "Trouble LSP [R]eferences";
-    }
-    # Smart Splits keymaps
-    # -- resize splits
-    {
-      key = "<A-h>";
-      action = helpers.mkRaw "require('smart-splits').resize_left";
-      options.desc = "Resize left";
-    }
-    {
-      key = "<A-j>";
-      action = helpers.mkRaw "require('smart-splits').resize_down";
-      options.desc = "Resize down";
-    }
-    {
-      key = "<A-k>";
-      action = helpers.mkRaw "require('smart-splits').resize_up";
-      options.desc = "Resize up";
-    }
-    {
-      key = "<A-l>";
-      action = helpers.mkRaw "require('smart-splits').resize_right";
-      options.desc = "Resize right";
-    }
-    # -- moving between splits
-    {
-      key = "<C-h>";
-      action = helpers.mkRaw "require('smart-splits').move_cursor_left";
-      options.desc = "Move left";
-    }
-    {
-      key = "<C-j>";
-      action = helpers.mkRaw "require('smart-splits').move_cursor_down";
-      options.desc = "Move down";
-    }
-    {
-      key = "<C-k>";
-      action = helpers.mkRaw "require('smart-splits').move_cursor_up";
-      options.desc = "Move up";
-    }
-    {
-      key = "<C-l>";
-      action = helpers.mkRaw "require('smart-splits').move_cursor_right";
-      options.desc = "Move right";
-    }
-    # -- swapping buffers between splits
-    {
-      key = "<leader>h";
-      action = helpers.mkRaw "require('smart-splits').swap_buf_left";
-      options.desc = "Swap buffer left";
-    }
-    {
-      key = "<leader>j";
-      action = helpers.mkRaw "require('smart-splits').swap_buf_down";
-      options.desc = "Swap buffer down";
-    }
-    {
-      key = "<leader>k";
-      action = helpers.mkRaw "require('smart-splits').swap_buf_up";
-      options.desc = "Swap buffer up";
-    }
-    {
-      key = "<leader>l";
-      action = helpers.mkRaw "require('smart-splits').swap_buf_right";
-      options.desc = "Swap buffer right";
-    }
-    # -- Neogit
-    {
-      key = "<leader>G";
-      action = "<CMD>:Neogit<CR>";
-      options.desc = "Neogit";
-    }
-    {
-      key = "<leader>Gc";
-      action = "<CMD>:DiffviewClose<CR>";
-      options.desc = "Open Diffview";
-    }
-    {
-      key = "<leader>Go";
-      action = "<CMD>:DiffviewOpen<CR>";
-      options.desc = "Open Diffview";
     }
   ];
 }
