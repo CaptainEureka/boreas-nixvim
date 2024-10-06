@@ -1,8 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    # ./alpha
-    ./barbar
-    ./diffview
     ./efm
     ./hardtime
     ./lsp
@@ -11,11 +8,9 @@
     ./neotest
     ./noice
     ./navic
-    ./smart-splits
     ./telescope
     ./toggleterm
     ./treesitter
-    ./zellij
   ];
 
   plugins = {
@@ -25,10 +20,10 @@
     fugitive.enable = true;
     gitsigns.enable = true;
     hmts.enable = true;
-    neogit.enable = true;
     neoscroll.enable = true;
     nix.enable = true;
     nvim-autopairs.enable = true;
+    markview.enable = true;
     vim-surround.enable = true;
     trouble.enable = true;
     typst-vim.enable = true;
