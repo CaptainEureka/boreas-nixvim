@@ -2,6 +2,7 @@
   plugins = {
     treesitter = {
       enable = true;
+      folding.enable = true;
       settings = {
         indent.enable = true;
         highlight.enable = true;
@@ -24,6 +25,12 @@
       settings.multiline_threshold = 1;
     };
 
-    treesitter-textobjects.enable = true;
+    treesitter-textobjects = {
+      enable = true;
+      lspInterop.enable = true;
+      move.enable = true;
+      swap.enable = true;
+      select.enable = true;
+    };
   };
 }
