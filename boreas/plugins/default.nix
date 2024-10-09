@@ -11,6 +11,7 @@
     ./telescope
     ./toggleterm
     ./treesitter
+    ./schemastore
   ];
 
   plugins = {
