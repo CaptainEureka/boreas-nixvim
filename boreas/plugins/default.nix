@@ -1,5 +1,6 @@
 {pkgs, ...}: {
   imports = [
+    ./copilot
     ./efm
     ./hardtime
     ./lsp
