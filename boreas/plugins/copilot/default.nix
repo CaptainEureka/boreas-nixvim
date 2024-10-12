@@ -1,6 +1,5 @@
 {
   plugins = {
-    dressing.enable = true;
     copilot-lua.enable = true;
 
     avante = {

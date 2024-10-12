@@ -9,7 +9,6 @@
 
   outputs = {
     nixpkgs,
-    nixvim,
     flake-parts,
     ...
   } @ inputs:
@@ -26,26 +25,21 @@
         system,
         ...
       }: let
-        nixvimLib = nixvim.lib.${system};
-        nixvim' = nixvim.legacyPackages.${system};
-        nixvimModule = {
-          inherit pkgs;
-          module = import ./boreas;
-          # You can use `extraSpecialArgs` to pass additional arguments to your module files
-          extraSpecialArgs = {
-            # inherit (inputs) foo;
-          };
-        };
-        nvim = nixvim'.makeNixvimWithModule nixvimModule;
+        nixvim = inputs.nixvim.legacyPackages.${system};
       in {
-        checks = {
-          # Run `nix flake check .` to verify that your config is not broken
-          default = nixvimLib.check.mkTestDerivationFromNixvimModule nixvimModule;
-        };
-
         packages = {
-          # Lets you run `nix run .` to start nixvim
-          default = nvim;
+          default = nixvim.makeNixvimWithModule {
+            inherit pkgs;
+            module = {
+              imports = [./boreas];
+            };
+          };
+          copilot = nixvim.makeNixvimWithModule {
+            inherit pkgs;
+            module = {
+              imports = [./boreas ./boreas/plugins/copilot];
+            };
+          };
         };
       };
     };

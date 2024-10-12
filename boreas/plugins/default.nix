@@ -1,6 +1,5 @@
 {pkgs, ...}: {
   imports = [
-    ./copilot
     ./efm
     ./hardtime
     ./lsp
@@ -17,6 +16,7 @@
 
   plugins = {
     barbecue.enable = true;
+    dressing.enable = true;
     comment.enable = true;
     flash.enable = true;
     fugitive.enable = true;
