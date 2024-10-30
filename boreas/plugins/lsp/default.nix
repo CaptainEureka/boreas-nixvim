@@ -29,19 +29,19 @@
         lua_ls.enable = true;
         ruff = {
           enable = true;
-          # extraOptions = {
-          #   on_attach = helpers.mkRaw ''
-          #     function(client, bufnr)
-          #         if client.name == 'ruff' then
-          #           -- Disable hover in favor of Pyright
-          #           client.server_capabilities.hoverProvider = false
-          #         end
-          #       end
-          #   '';
-          # };
+          extraOptions = {
+            on_attach = helpers.mkRaw ''
+              function(client, bufnr)
+                  if client.name == 'ruff' then
+                    -- Disable hover in favor of Pyright
+                    client.server_capabilities.hoverProvider = false
+                  end
+                end
+            '';
+          };
         };
         pyright = {
-          enable = false;
+          enable = true;
           extraOptions = {
             settings = {
               pyright.disableOrganizeImports = true;
