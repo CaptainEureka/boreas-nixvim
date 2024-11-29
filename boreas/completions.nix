@@ -15,16 +15,8 @@
     cmp-nvim-lua.enable = true;
     lspkind = {
       enable = true;
-      cmp = {
-        enable = true;
-        menu = {
-          buffer = "[buffer]";
-          luasnip = "[snip]";
-          nvim_lsp = "[lsp]";
-          nvim_lua = "[api]";
-          path = "[path]";
-        };
-      };
+      preset = "codicons";
+      cmp.enable = true;
     };
 
     cmp = {
@@ -48,14 +40,14 @@
         };
 
         sources = [
-          {name = "nvim_lua";}
           {name = "nvim_lsp";}
-          {name = "luasnip";}
-          {name = "path";}
           {
             name = "buffer";
             option.get_bufnrs.__raw = "vim.api.nvim_list_bufs";
           }
+          {name = "path";}
+          {name = "nvim_lua";}
+          {name = "luasnip";}
           {name = "calc";}
         ];
       };
