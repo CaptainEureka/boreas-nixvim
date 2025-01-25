@@ -28,7 +28,6 @@
     markview.enable = true;
     vim-surround.enable = true;
     trouble.enable = true;
-    typst-vim.enable = true;
     web-devicons.enable = true;
   };
 

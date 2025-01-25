@@ -51,7 +51,6 @@
         };
         taplo.enable = true;
         tailwindcss.enable = true;
-        typst_lsp.enable = true;
         terraformls.enable = true;
         sqls.enable = true;
         yamlls.enable = true;

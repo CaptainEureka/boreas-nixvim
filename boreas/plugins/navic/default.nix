@@ -14,7 +14,6 @@
           "lua-ls"
           "pyright"
           "ruff-lsp"
-          "typst-lsp"
           "tsserver"
           "terraformls"
           "yamlls"
