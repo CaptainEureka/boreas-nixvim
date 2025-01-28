@@ -23,6 +23,10 @@
           formatter = "beautysh";
           linter = "shellcheck";
         };
+        go = {
+          formatter = ["gofmt" "golines"];
+          linter = "golangci_lint";
+        };
         gitcommit.linter = "gitlint";
         json = {
           formatter = "jq";
