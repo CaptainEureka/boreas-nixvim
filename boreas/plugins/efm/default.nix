@@ -16,7 +16,7 @@
 
     efmls-configs = {
       enable = true;
-      externallyManagedPackages = ["terraform_fmt"];
+      externallyManagedPackages = ["terraform_fmt" "golangci_lint"];
       setup = {
         all.linter = ["vale" "codespell"];
         bash = {
