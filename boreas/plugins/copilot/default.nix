@@ -9,11 +9,20 @@
     };
     copilot-cmp.enable = true;
 
-    avante = {
+    # avante = {
+    #   enable = true;
+    #   settings = {
+    #     provider = "copilot";
+    #     auto_suggestions_provider = "copilot";
+    #   };
+    # };
+
+    codecompanion = {
       enable = true;
-      settings = {
-        provider = "copilot";
-        auto_suggestions_provider = "copilot";
+      settings.strategies = {
+        chat.adapter = "copilot";
+        inline.adapter = "copilot";
+        agent.adapter = "copilot";
       };
     };
 

@@ -33,8 +33,10 @@
 
   plugins.notify = {
     enable = true;
-    stages = "fade_in_slide_out";
-    timeout = 300;
+    settings = {
+      stages = "fade_in_slide_out";
+      timeout = 300;
+    };
   };
 
   plugins.oil = {
