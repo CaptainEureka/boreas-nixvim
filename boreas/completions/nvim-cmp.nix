@@ -1,26 +1,17 @@
 {
   plugins = {
-    luasnip = {
-      enable = true;
-      fromVscode = [
-        {include = ["python"];}
-      ];
-    };
-
-    # CMP
-
-    cmp-nvim-lsp.enable = true;
-    cmp-nvim-lsp-document-symbol.enable = true;
-    cmp-nvim-lsp-signature-help.enable = true;
-    cmp-nvim-lua.enable = true;
+    # NVIM-CMP
+    cmp-nvim-lsp.enable = false;
+    cmp-nvim-lsp-document-symbol.enable = false;
+    cmp-nvim-lsp-signature-help.enable = false;
+    cmp-nvim-lua.enable = false;
     lspkind = {
-      enable = true;
+      enable = false;
       preset = "codicons";
       cmp.enable = true;
     };
-
     cmp = {
-      enable = true;
+      enable = false;
       settings = {
         snippet.expand = "function(args) require('luasnip').lsp_expand(args.body) end";
         experimental = {

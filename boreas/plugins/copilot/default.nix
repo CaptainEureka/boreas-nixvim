@@ -7,15 +7,6 @@
         panel.enabled = false;
       };
     };
-    copilot-cmp.enable = true;
-
-    # avante = {
-    #   enable = true;
-    #   settings = {
-    #     provider = "copilot";
-    #     auto_suggestions_provider = "copilot";
-    #   };
-    # };
 
     codecompanion = {
       enable = true;
@@ -26,13 +17,25 @@
       };
     };
 
-    lspkind = {
-      cmp = {
-        menu.Copilot = "[copilot]";
-      };
-      symbolMap = {Copilot = "";};
-    };
+    # nvim-cmp-copilot
+    # copilot-cmp.enable = true;
+    # lspkind = {
+    #   cmp = {
+    #     menu.Copilot = "[copilot]";
+    #   };
+    #   symbolMap = {Copilot = "";};
+    # };
+    # cmp.settings.sources = [{name = "copilot";}];
 
-    cmp.settings.sources = [{name = "copilot";}];
+    # blink-cmp-copilot
+    blink-cmp-copilot.enable = true;
+    blink-cmp.settings = {
+      sources.default = ["copilot"];
+      sources.providers.copilot = {
+        module = "blink-cmp-copilot";
+        name = "copilot";
+        score_offset = 100;
+      };
+    };
   };
 }

@@ -2,7 +2,7 @@
   imports = [
     (import ./colorschemes "catppuccin")
     ./autocommands.nix
-    ./completions.nix
+    ./completions
     ./keymaps.nix
     ./config.nix
     ./options.nix
