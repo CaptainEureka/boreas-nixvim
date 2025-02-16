@@ -1,10 +1,11 @@
 {
   opts = {
-    termguicolors = true;
+    cmdheight = 2;
+    mouse = "a";
     number = true;
     relativenumber = true;
-    tabstop = 2;
     shiftwidth = 2;
-    cmdheight = 2;
+    tabstop = 2;
+    termguicolors = true;
   };
 }
