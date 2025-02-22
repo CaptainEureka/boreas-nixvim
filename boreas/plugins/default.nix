@@ -2,6 +2,7 @@
   imports = [
     ./dressing
     ./efm
+    ./gitlinker
     ./gitsigns
     ./hardtime
     ./lsp
