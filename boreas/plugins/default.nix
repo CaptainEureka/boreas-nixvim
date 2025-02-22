@@ -2,6 +2,7 @@
   imports = [
     ./dressing
     ./efm
+    ./gitsigns
     ./hardtime
     ./lsp
     ./lualine
@@ -21,7 +22,6 @@
     comment.enable = true;
     flash.enable = true;
     fugitive.enable = true;
-    gitsigns.enable = true;
     hmts.enable = true;
     neoscroll.enable = true;
     nix.enable = true;
