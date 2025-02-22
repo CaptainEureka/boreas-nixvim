@@ -13,14 +13,15 @@
       terminal_colors = true;
 
       integrations = {
-        barbar = true;
         barbecue = {
           alt_background = true;
           bold_basename = true;
           dim_context = true;
           dim_dirname = true;
         };
+        blink_cmp = true;
         cmp = true;
+        diffview = true;
         flash = true;
         gitsigns = true;
         harpoon = true;
@@ -30,7 +31,11 @@
         };
         lsp_trouble = true;
         markdown = true;
-        navic.enabled = true;
+        mini.enabled = true;
+        navic = {
+          enabled = true;
+          custom_bg = "NONE";
+        };
         native_lsp.enabled = true;
         neogit = true;
         noice = true;
