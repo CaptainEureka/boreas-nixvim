@@ -4,6 +4,7 @@
     ./hardtime
     ./lsp
     ./lualine
+    ./mini
     ./neogen
     ./neotest
     ./noice
@@ -28,7 +29,6 @@
     markview.enable = true;
     vim-surround.enable = true;
     trouble.enable = true;
-    web-devicons.enable = true;
   };
 
   plugins.notify = {

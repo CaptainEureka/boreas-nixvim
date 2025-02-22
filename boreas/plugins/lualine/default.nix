@@ -88,7 +88,6 @@
         lualine_a = [
           {
             __unkeyed = "mode";
-            icon = "";
           }
         ];
         lualine_b = [
