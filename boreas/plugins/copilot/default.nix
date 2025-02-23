@@ -3,21 +3,16 @@
   lib,
   ...
 }: {
+  imports = [
+    ./codecompanion
+  ];
+
   plugins = {
     copilot-lua = {
       enable = true;
       settings = {
         suggestion.enabled = false;
         panel.enabled = false;
-      };
-    };
-
-    codecompanion = {
-      enable = true;
-      settings.strategies = {
-        chat.adapter = "copilot";
-        inline.adapter = "copilot";
-        agent.adapter = "copilot";
       };
     };
 

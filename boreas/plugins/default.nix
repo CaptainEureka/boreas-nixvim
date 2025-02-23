@@ -16,6 +16,7 @@
     ./lualine
     ./lz-n
     ./mini
+    ./markview
     ./neogen
     ./neotest
     ./notify
@@ -38,6 +39,5 @@
     fugitive.enable = true;
     hmts.enable = true;
     nix.enable = true;
-    markview.enable = true;
   };
 }
