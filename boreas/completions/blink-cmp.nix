@@ -21,7 +21,10 @@
             };
           };
         };
-        documentation.auto_show = true;
+        documentation = {
+          window.border = "single";
+          auto_show = true;
+        };
         menu = {
           auto_show = lib.nixvim.mkRaw ''function(ctx) return ctx.mode ~= 'cmdline' end'';
           draw = {
@@ -88,6 +91,32 @@
           "path"
         ];
       };
+    };
+  };
+
+  # Customise highlight groups for BlinkCmp
+  highlight = rec {
+    BlinkCmpItem = {
+      bg = "#1e1e2e";
+      fg = "#bac2de";
+    };
+    BlinkCmpItemKind = {
+      bg = "#1e1e2e";
+      fg = "#bac2de";
+    };
+    BlinkCmpMenu = {
+      bg = "#181825";
+      fg = "#bac2de";
+    };
+    BlinkCmpMenuSelection.bg = "#1e1e2e";
+    BlinkCmpDoc.bg = "#11111b";
+    BlinkCmpDocSeperator = {
+      inherit (BlinkCmpMenu) bg;
+      fg = BlinkCmpMenuSelection.bg;
+    };
+    BlinkCmpDocBorder = {
+      inherit (BlinkCmpMenu) bg;
+      fg = "#89b4fa";
     };
   };
 }
