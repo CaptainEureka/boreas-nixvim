@@ -1,16 +1,27 @@
-{helpers, ...}: {
+{
+  lib,
+  pkgs,
+  helpers,
+  ...
+}: {
   plugins = {
+    lsp-format.enable = true;
     lsp = {
       enable = true;
+      inlayHints = true;
       keymaps = {
         silent = true;
+        diagnostic = {
+          "<leader>j" = "goto_next";
+          "<leader>k" = "goto_prev";
+        };
         lspBuf = {
-          "ff" = "format";
+          "<leader>ff" = "format";
           "gd" = "definition";
           "gr" = "references";
           "gD" = "declaration";
-          "gi" = "implementation";
-          "<leader>D" = "type_definition";
+          "gI" = "implementation";
+          "gT" = "type_definition";
           "<leader>rn" = "rename";
           "ca" = "code_action";
           "K" = "hover";
@@ -26,6 +37,15 @@
         jsonls.enable = true;
         marksman.enable = true;
         nil_ls.enable = true;
+        nixd = {
+          enable = true;
+          settings = {
+            formatting.command = ["${lib.getExe pkgs.alejandra}"];
+            options = {
+              nixvim.expr = ''(builtins.getFlake "github:nix-community/nixvim").packages.${pkgs.system}.default.options'';
+            };
+          };
+        };
         lua_ls.enable = true;
         ruff = {
           enable = true;

@@ -1,4 +1,8 @@
 {
+  config,
+  lib,
+  ...
+}: {
   plugins = {
     copilot-lua = {
       enable = true;
@@ -18,23 +22,31 @@
     };
 
     # nvim-cmp-copilot
-    # copilot-cmp.enable = true;
-    # lspkind = {
-    #   cmp = {
-    #     menu.Copilot = "[copilot]";
-    #   };
-    #   symbolMap = {Copilot = "";};
-    # };
-    # cmp.settings.sources = [{name = "copilot";}];
+    copilot-cmp = lib.mkIf config.plugins.cmp.enable {
+      enable = true;
+    };
+    lspkind = lib.mkIf config.plugins.cmp.enable {
+      cmp = {
+        menu.Copilot = "[copilot]";
+      };
+      symbolMap = {Copilot = "";};
+    };
+    cmp.settings.sources = lib.mkIf config.plugins.cmp.enable [{name = "copilot";}];
 
     # blink-cmp-copilot
-    blink-cmp-copilot.enable = true;
-    blink-cmp.settings = {
+    blink-copilot.enable = config.plugins.blink-cmp.enable;
+    # blink-cmp-copilot.enable = config.plugins.blink-cmp.enable;
+    blink-cmp.settings = lib.mkIf config.plugins.blink-cmp.enable {
       sources.default = ["copilot"];
       sources.providers.copilot = {
-        module = "blink-cmp-copilot";
         name = "copilot";
+        module = "blink-copilot";
         score_offset = 100;
+        async = true;
+        opts = {
+          kind = "Copilot";
+          kind_icon = " ";
+        };
       };
     };
   };

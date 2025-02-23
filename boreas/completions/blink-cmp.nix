@@ -1,4 +1,8 @@
-{lib, ...}: {
+{
+  config,
+  lib,
+  ...
+}: {
   plugins.blink-cmp = {
     enable = true;
     setupLspCapabilities = true;
@@ -17,11 +21,7 @@
             };
           };
         };
-        documentation = {
-          auto_show = true;
-          window.border = "single";
-        };
-        ghost_text.enabled = true;
+        documentation.auto_show = true;
         menu = {
           auto_show = lib.nixvim.mkRaw ''function(ctx) return ctx.mode ~= 'cmdline' end'';
           draw = {
@@ -43,7 +43,12 @@
                 ellipsis = false;
                 # Use mini.icons for kind
                 text = lib.nixvim.mkRaw ''
-                  function(ctx) local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
+                  function(ctx)
+                    if ctx.kind == 'Copilot' then
+                      return ''
+                    end
+
+                    local kind_icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
                     return kind_icon
                   end
                 '';
@@ -75,13 +80,12 @@
       signature = {
         enabled = true;
         trigger.enabled = true;
-        window.border = "single";
       };
       sources = {
         default = [
           "lsp"
-          "path"
           "buffer"
+          "path"
         ];
       };
     };
