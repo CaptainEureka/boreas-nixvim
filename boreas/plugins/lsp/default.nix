@@ -23,7 +23,7 @@
           "gI" = "implementation";
           "gT" = "type_definition";
           "<leader>rn" = "rename";
-          "ca" = "code_action";
+          "<leader>ca" = "code_action";
           "K" = "hover";
         };
       };
