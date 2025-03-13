@@ -30,12 +30,6 @@
               imports = [./boreas];
             };
           };
-          copilot = nixvim.makeNixvimWithModule {
-            inherit pkgs;
-            module = {
-              imports = [./boreas ./boreas/plugins/copilot];
-            };
-          };
         };
       };
     };

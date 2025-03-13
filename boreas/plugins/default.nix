@@ -5,6 +5,7 @@
   ...
 }: {
   imports = [
+    ./copilot
     ./dressing
     ./efm
     ./gitlinker
