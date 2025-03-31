@@ -13,24 +13,25 @@
     ./hardtime
     ./indent-blankline
     ./lsp
-    ./luasnip
     ./lualine
+    ./luasnip
     ./lz-n
-    ./mini
     ./markview
+    ./mini
+    ./navic
     ./neogen
     ./neotest
-    ./notify
     ./noice
-    ./navic
+    ./notify
+    ./obsidian
     ./oil
     ./rustacean-nvim
+    ./schemastore
+    ./smart-splits
     ./telescope
     ./treesitter
     ./trouble
     ./typescript-tools
-    ./schemastore
-    ./smart-splits
     ./which-key
   ];
 
