@@ -74,6 +74,7 @@
         terraformls.enable = true;
         sqls.enable = true;
         yamlls.enable = true;
+        vectorcode_server.enable = true;
       };
     };
   };
