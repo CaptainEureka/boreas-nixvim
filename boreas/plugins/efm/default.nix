@@ -40,10 +40,7 @@
           formatter = "alejandra";
           linter = "statix";
         };
-        python = {
-          formatter = "ruff";
-          linter = "ruff";
-        };
+        python.formatter = "ruff";
         rust.formatter = "rustfmt";
         scala.formatter = "scalafmt";
         sh = {
@@ -51,7 +48,7 @@
           linter = "shellcheck";
         };
         sql = {
-          formatter = "sql-formatter";
+          formatter = "sqlfluff";
           linter = "sqlfluff";
         };
         typescript = {

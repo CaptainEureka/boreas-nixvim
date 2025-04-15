@@ -31,9 +31,12 @@
       servers = {
         docker_compose_language_service.enable = true;
         dockerls.enable = true;
+        fish_lsp.enable = true;
         gopls.enable = true;
         gleam.enable = true;
+        harper_ls.enable = true;
         html.enable = true;
+        htmx.enable = true;
         jsonls.enable = true;
         marksman.enable = true;
         nil_ls.enable = true;
@@ -46,6 +49,7 @@
             };
           };
         };
+        nushell.enable = true;
         lua_ls.enable = true;
         ruff = {
           enable = true;
@@ -72,7 +76,6 @@
         taplo.enable = true;
         tailwindcss.enable = true;
         terraformls.enable = true;
-        sqls.enable = true;
         yamlls.enable = true;
         vectorcode_server.enable = true;
       };
