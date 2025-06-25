@@ -49,7 +49,6 @@
             };
           };
         };
-        nushell.enable = true;
         lua_ls.enable = true;
         ruff = {
           enable = true;
@@ -77,7 +76,6 @@
         tailwindcss.enable = true;
         terraformls.enable = true;
         yamlls.enable = true;
-        vectorcode_server.enable = true;
       };
     };
   };
