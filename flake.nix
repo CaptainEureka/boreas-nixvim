@@ -3,7 +3,7 @@
 
   inputs = {
     systems.url = "github:nix-systems/default";
-    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/25.05";
     nixvim.url = "github:nix-community/nixvim";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
