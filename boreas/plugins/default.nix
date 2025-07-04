@@ -25,6 +25,7 @@
     ./notify
     ./obsidian
     ./oil
+    ./octo
     ./rustacean-nvim
     ./schemastore
     ./smart-splits
