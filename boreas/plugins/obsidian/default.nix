@@ -5,7 +5,7 @@
   ...
 }: {
   plugins.obsidian = {
-    enable = pkgs.stdenv.isDarwin;
+    enable = false;
     settings = {
       disable_frontmatter = true;
       completion.blink = config.plugins.blink-cmp.enable;
