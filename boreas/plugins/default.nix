@@ -19,11 +19,8 @@
     ./markview
     ./mini
     ./navic
-    ./neogen
-    ./neotest
     ./noice
     ./notify
-    ./obsidian
     ./oil
     ./octo
     ./rustacean-nvim
