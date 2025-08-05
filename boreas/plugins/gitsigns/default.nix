@@ -15,17 +15,26 @@
   keymaps = lib.mkIf config.plugins.gitsigns.enable [
     {
       mode = ["n" "v"];
-      key = "<leader>gh";
-      action = "gitsigns";
+      key = "<leader>ghS";
+      action = "<CMD>:Gitsigns stage_hunk<CR>";
       options = {
         silent = true;
-        desc = "+hunks";
+        desc = "stage hunk";
+      };
+    }
+    {
+      mode = ["n" "v"];
+      key = "<leader>ghR";
+      action = "<CMD>:Gitsigns reset_hunk<CR>";
+      options = {
+        silent = true;
+        desc = "reset hunk";
       };
     }
     {
       mode = "n";
-      key = "<leader>ghb";
-      action = ":Gitsigns blame_line<CR>";
+      key = "<leader>gb";
+      action = "<CMD>:Gitsigns blame_line<CR>";
       options = {
         silent = true;
         desc = "blame line";
@@ -33,8 +42,8 @@
     }
     {
       mode = "n";
-      key = "<leader>ghR";
-      action = ":Gitsigns reset_buffer<CR>";
+      key = "<leader>gbR";
+      action = "<CMD>:Gitsigns reset_buffer<CR>";
       options = {
         silent = true;
         desc = "reset buffer";
@@ -42,8 +51,8 @@
     }
     {
       mode = "n";
-      key = "<leader>ghS";
-      action = ":Gitsigns stage_buffer<CR>";
+      key = "<leader>gbS";
+      action = "<CMD>:Gitsigns stage_buffer<CR>";
       options = {
         silent = true;
         desc = "stage buffer";
