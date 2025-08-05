@@ -18,6 +18,14 @@ in {
         settings.specific_opts.codeactions = false;
       };
     };
+    settings = {
+      prompt_prefix = " ? ";
+      layout_stratgy = "horizontal";
+      layout_config = {
+        width = 0.9;
+        preview_width = 0.7;
+      };
+    };
   };
 
   keymaps = lib.mkIf config.plugins.telescope.enable [
