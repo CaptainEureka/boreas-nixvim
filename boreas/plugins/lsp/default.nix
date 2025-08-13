@@ -34,7 +34,16 @@
         fish_lsp.enable = true;
         gopls.enable = true;
         gleam.enable = true;
-        harper_ls.enable = true;
+        harper_ls = {
+          enable = true;
+          filetypes = [
+            "gitcommit"
+            "git-commit"
+            "markdown"
+            "typst"
+            "latex"
+          ];
+        };
         jsonls.enable = true;
         marksman.enable = true;
         nil_ls.enable = true;
