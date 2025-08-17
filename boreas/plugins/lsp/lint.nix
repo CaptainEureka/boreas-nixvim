@@ -1,4 +1,4 @@
-{
+{pkgs, ...}: {
   plugins.lint = {
     enable = true;
     lintersByFt = {
@@ -10,4 +10,11 @@
       nix = ["statix"];
     };
   };
+  extraPackages = [
+    pkgs.tflint
+    pkgs.yamllint
+    pkgs.golangci-lint
+    pkgs.commitlint
+    pkgs.statix
+  ];
 }
