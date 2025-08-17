@@ -4,8 +4,14 @@
   helpers,
   ...
 }: {
+  imports = [
+    ./fastaction.nix
+    ./lint.nix
+    ./conform.nix
+  ];
+
   plugins = {
-    lsp-format.enable = true;
+    lsp-lines.enable = true;
     lsp = {
       enable = true;
       inlayHints = true;
@@ -16,14 +22,12 @@
           "<leader>k" = "goto_prev";
         };
         lspBuf = {
-          "<leader>ff" = "format";
           "gd" = "definition";
           "gr" = "references";
           "gD" = "declaration";
           "gI" = "implementation";
           "gT" = "type_definition";
-          "<leader>rn" = "rename";
-          "<leader>ca" = "code_action";
+          "<leader>cn" = "rename";
           "K" = "hover";
         };
       };
@@ -46,13 +50,31 @@
         };
         jsonls.enable = true;
         marksman.enable = true;
-        nil_ls.enable = true;
         nixd = {
           enable = true;
           settings = {
-            formatting.command = ["${lib.getExe pkgs.alejandra}"];
+            # See <https://sbulav.github.io/vim/neovim-setting-up-nixd/>
+            nixpkgs.expr = "import (builtins.getFlake(toString ./.)).inputs.nixpkgs { }";
+            formatting.command = ["alejandra"];
             options = {
-              nixvim.expr = ''(builtins.getFlake "github:nix-community/nixvim").packages.${pkgs.system}.default.options'';
+              nixos.expr = ''
+                let
+                  flake = builtins.getFlake(toString ./.)
+                in
+                  flake.nixosConfigurations.orion.options;
+              '';
+              darwin.expr = ''
+                let
+                  flake = builtins.getFlake(toString ./.)
+                in
+                  flake.darwinConfigurations.MWKS-CMXLR4L4YP.options;
+              '';
+              nixvim.expr = ''
+                let
+                  flake = builtins.getFlake(toString ./.)
+                in
+                  flake.packages.${pkgs.system}.neovim.options;
+              '';
             };
           };
         };

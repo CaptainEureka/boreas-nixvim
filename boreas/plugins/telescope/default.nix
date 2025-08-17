@@ -10,20 +10,21 @@
   };
 in {
   plugins.telescope = {
-    enable = true;
+    enable = false;
     extensions = {
       ui-select = {
-        enable = true;
+        enable = false;
         # disable codeactions
         settings.specific_opts.codeactions = false;
       };
     };
-    settings = {
-      prompt_prefix = " ? ";
-      layout_stratgy = "horizontal";
-      layout_config = {
+    settings.defaults = {
+      prompt_prefix = "  ";
+      selection_caret = " ";
+      layout_strategy = "horizontal";
+      layout_config.horizontal = {
         width = 0.9;
-        preview_width = 0.7;
+        preview_width = 0.6;
       };
     };
   };
@@ -33,9 +34,8 @@ in {
       key = "<leader>/";
       action = helpers.mkRaw ''
         function()
-          require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_ivy({
-            previewer=false
-          }))
+          local theme = require('telescope.themes').get_ivy({ previewer=false })
+          require('telescope.builtin').current_buffer_fuzzy_find(theme)
         end
       '';
       options.desc = "fuzzy search current buffer";

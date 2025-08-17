@@ -1,3 +1,6 @@
 {
-  colorschemes.poimandres.enable = true;
+  colorschemes.poimandres = {
+    enable = true;
+    lazyLoad.enable = true;
+  };
 }

@@ -1,14 +1,8 @@
-themeName: let
-  validThemes = [
-    "catppuccin"
-    "gruvbox"
-    "oxocarbon"
-    "poimandres"
+{
+  colorscheme = "catppuccin";
+  imports = [
+    ./catppuccin.nix
+    ./gruvbox.nix
+    ./poimandres.nix
   ];
-  themePath =
-    if builtins.elem themeName validThemes
-    then ././${themeName}.nix
-    else throw "Invalid theme name provided: ${themeName}";
-in {
-  imports = [themePath];
 }

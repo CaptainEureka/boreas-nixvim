@@ -3,9 +3,6 @@
     enable = true;
     mockDevIcons = true;
     modules = {
-      # mini.ai
-      ai = {};
-
       # mini.comment
       comment.mappings = {
         comment = "gcc";
@@ -29,10 +26,17 @@
       };
 
       # mini.pairs
-      pairs = {};
-
-      # mini.splitjoin
-      splitjoin = {};
+      pairs = {
+        modes = {
+          insert = true;
+          command = true;
+          terminal = false;
+        };
+        skip_next = ''[=[[%w%%%'%[%"%.%`%$]]=]'';
+        skip_ts = ["string"];
+        skip_unbalanced = true;
+        markdown = true;
+      };
     };
   };
 }

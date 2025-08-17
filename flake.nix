@@ -4,6 +4,8 @@
   inputs = {
     systems.url = "github:nix-systems/default";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    treefmt-nix.url = "github:numtide/treefmt-nix";
+    devenv.url = "github:cachix/devenv";
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -12,20 +14,50 @@
   };
 
   outputs = {
-    nixpkgs,
     flake-parts,
     systems,
     ...
   } @ inputs:
     flake-parts.lib.mkFlake {inherit inputs;} {
       systems = import systems;
+      imports = [
+        inputs.treefmt-nix.flakeModule
+        inputs.devenv.flakeModule
+      ];
+
       perSystem = {
         pkgs,
+        config,
         system,
         ...
       }: let
         nixvim = inputs.nixvim.legacyPackages.${system};
       in {
+        treefmt = {
+          projectRootFile = "flake.nix";
+          flakeCheck = true;
+          programs = {
+            alejandra.enable = true;
+            statix.enable = true;
+          };
+        };
+
+        devenv.shells.default = {
+          scripts = {
+            "update".exec = "nix flake update";
+          };
+
+          packages = [
+            config.packages.default
+            pkgs.statix
+            pkgs.alejandra
+          ];
+
+          git-hooks.hooks = {
+            gitlint.enable = true;
+          };
+        };
+
         packages = {
           default = nixvim.makeNixvimWithModule {
             inherit pkgs;

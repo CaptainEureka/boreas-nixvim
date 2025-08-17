@@ -7,25 +7,25 @@
   imports = [
     ./copilot
     ./dressing
-    ./efm
+    ./fzf-lua
     ./gitlinker
     ./gitsigns
     ./hardtime
-    ./indent-blankline
+    # ./indent-blankline
     ./lsp
     ./lualine
     ./luasnip
     ./lz-n
     ./markview
     ./mini
-    ./navic
     ./noice
     ./notify
-    ./oil
     ./octo
+    ./oil
     ./rustacean-nvim
     ./schemastore
     ./smart-splits
+    ./snacks
     ./telescope
     ./treesitter
     ./trouble
@@ -36,6 +36,7 @@
   plugins = {
     barbecue.enable = true;
     flash.enable = true;
+    fidget.enable = true;
     fugitive.enable = true;
     hmts.enable = true;
     nix.enable = true;

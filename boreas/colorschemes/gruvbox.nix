@@ -1,6 +1,7 @@
 {
   colorschemes.gruvbox = {
     enable = true;
-    contrastDark = "hard";
+    lazyLoad.enable = true;
+    settings.contrast_dark = "hard";
   };
 }

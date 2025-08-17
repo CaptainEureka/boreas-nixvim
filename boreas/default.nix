@@ -1,10 +1,8 @@
 {
   imports = [
-    (import ./colorschemes "catppuccin")
-    ./autocommands.nix
+    ./colorschemes
     ./completions
-    ./keymaps.nix
-    ./config.nix
+    ./config
     ./plugins
     ./plugins/lsp/nvim-metals.nix
   ];

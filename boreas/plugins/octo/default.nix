@@ -1,3 +1,3 @@
 {
-  plugins.octo.enable = true;
+  plugins.octo.enable = false;
 }

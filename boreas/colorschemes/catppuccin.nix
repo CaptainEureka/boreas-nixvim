@@ -6,10 +6,15 @@
         dark = "mocha";
         light = "latte";
       };
+      color_overrides = {
+        mocha = {
+          mantle = "#1e1e2e";
+        };
+      };
       flavour = "mocha";
+      lazyLoad.enable = true;
       show_end_of_buffer = true;
       no_italic = true;
-      transparent_background = false;
       terminal_colors = true;
 
       integrations = {
@@ -22,6 +27,8 @@
         blink_cmp = true;
         cmp = true;
         diffview = true;
+        fidget = true;
+        fzf = true;
         flash = true;
         gitsigns = true;
         harpoon = true;
@@ -32,14 +39,16 @@
         lsp_trouble = true;
         markdown = true;
         mini.enabled = true;
-        navic = {
-          enabled = true;
-          custom_bg = "NONE";
-        };
+        navic.enabled = true;
         native_lsp.enabled = true;
         neogit = true;
         noice = true;
         notify = true;
+        octo = true;
+        snacks = {
+          enabled = true;
+          indent_scope_color = "lavender";
+        };
         telescope.enabled = true;
         treesitter = true;
         treesitter_context = true;
