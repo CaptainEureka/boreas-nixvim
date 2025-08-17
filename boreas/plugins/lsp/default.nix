@@ -50,30 +50,31 @@
         };
         jsonls.enable = true;
         marksman.enable = true;
+        nil_ls.enable = true;
         nixd = {
-          enable = true;
+          enable = false;
           settings = {
             # See <https://sbulav.github.io/vim/neovim-setting-up-nixd/>
             nixpkgs.expr = "import (builtins.getFlake(toString ./.)).inputs.nixpkgs { }";
             options = {
-              nixos.expr = ''
-                let
-                  flake = builtins.getFlake(toString ./.);
-                in
-                  flake.nixosConfigurations.orion.options
-              '';
-              darwin.expr = ''
-                let
-                  flake = builtins.getFlake(toString ./.);
-                in
-                  flake.darwinConfigurations.MWKS-CMXLR4L4YP.options
-              '';
-              nixvim.expr = ''
-                let
-                  flake = builtins.getFlake(toString ./.);
-                in
-                  flake.packages.${pkgs.system}.neovim.options
-              '';
+              # nixos.expr = ''
+              #   let
+              #     flake = builtins.getFlake(toString ./.);
+              #   in
+              #     flake.nixosConfigurations.orion.options
+              # '';
+              # darwin.expr = ''
+              #   let
+              #     flake = builtins.getFlake(toString ./.);
+              #   in
+              #     flake.darwinConfigurations.MWKS-CMXLR4L4YP.options
+              # '';
+              # nixvim.expr = ''
+              #   let
+              #     flake = builtins.getFlake(toString ./.);
+              #   in
+              #     flake.packages.${pkgs.system}.neovim.options
+              # '';
             };
           };
         };
