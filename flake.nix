@@ -6,10 +6,8 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     devenv.url = "github:cachix/devenv";
-    nixvim = {
-      url = "github:nix-community/nixvim";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    nixvim.url = "github:nix-community/nixvim";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
@@ -32,6 +30,9 @@
         ...
       }: let
         nixvim = inputs.nixvim.legacyPackages.${system};
+        overlays = [
+          inputs.neovim-nightly-overlay.overlays.default
+        ];
       in {
         treefmt = {
           projectRootFile = "flake.nix";
@@ -62,7 +63,10 @@
           default = nixvim.makeNixvimWithModule {
             inherit pkgs;
             module = {
-              imports = [./boreas];
+              imports = [
+                ./boreas
+                {nixpkgs.overlays = overlays;}
+              ];
             };
           };
         };
