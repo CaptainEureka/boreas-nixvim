@@ -6,11 +6,7 @@
         dark = "mocha";
         light = "latte";
       };
-      color_overrides = {
-        mocha = {
-          mantle = "#1e1e2e";
-        };
-      };
+      float.transparent = true;
       flavour = "mocha";
       lazyLoad.enable = true;
       show_end_of_buffer = true;
