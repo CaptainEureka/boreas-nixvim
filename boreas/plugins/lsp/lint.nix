@@ -2,7 +2,6 @@
   plugins.lint = {
     enable = true;
     lintersByFt = {
-      terraform = ["tflint"];
       yaml = ["yamllint"];
       go = ["golanci_lint"];
       gitcommit = ["commitlint"];
@@ -11,7 +10,6 @@
     };
   };
   extraPackages = [
-    pkgs.tflint
     pkgs.yamllint
     pkgs.golangci-lint
     pkgs.commitlint
