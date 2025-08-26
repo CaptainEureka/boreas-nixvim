@@ -53,10 +53,6 @@
             pkgs.statix
             pkgs.alejandra
           ];
-
-          git-hooks.hooks = {
-            gitlint.enable = true;
-          };
         };
 
         packages = {
