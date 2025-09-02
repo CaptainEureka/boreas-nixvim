@@ -16,8 +16,6 @@
     jump = {
       severity.__raw = "vim.diagnostic.severity.WARN";
     };
-    virtual_lines.current_line = true;
-    virtual_text = true;
   };
   opts = {
     # Enable relative line numbers

@@ -11,7 +11,16 @@
   ];
 
   plugins = {
-    lsp-lines.enable = true;
+    tiny-inline-diagnostic = {
+      enable = true;
+      settings = {
+        preset = "modern";
+        options = {
+          show_source.if_many = true;
+          multilines.enabled = true;
+        };
+      };
+    };
     lsp = {
       enable = true;
       inlayHints = true;
