@@ -3,7 +3,7 @@
     enable = true;
     lintersByFt = {
       yaml = ["yamllint"];
-      go = ["golanci_lint"];
+      go = ["golangcilint"];
       gitcommit = ["commitlint"];
       markdown = ["markdownlint"];
       nix = ["statix"];
