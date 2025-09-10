@@ -6,6 +6,8 @@
   plugins.conform-nvim = {
     enable = true;
     settings = {
+      default_format_ops.lsp_format = "fallback";
+
       format_on_save = {
         lspFallback = true;
         timeoutMs = 500;
@@ -43,9 +45,6 @@
         yaml = ["yamlfmt"];
         nu = ["nufmt"];
         "*" = ["codespell"];
-      };
-      formatters = {
-        squeeze_blanks = lib.getExe' pkgs.coreutils "cat";
       };
     };
   };
