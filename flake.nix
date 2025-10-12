@@ -55,8 +55,11 @@
           ];
 
           git-hooks.hooks = {
-            alejandra.enable = true;
-            statix.enable = true;
+            nix-fmt = {
+              enable = true;
+              name = "Nix Format";
+              entry = "nix fmt";
+            };
           };
         };
 
