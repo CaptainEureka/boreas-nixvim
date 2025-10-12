@@ -31,7 +31,7 @@
       }: let
         nixvim = inputs.nixvim.legacyPackages.${system};
         overlays = [
-          inputs.neovim-nightly-overlay.overlays.default
+          # inputs.neovim-nightly-overlay.overlays.default
         ];
       in {
         treefmt = {
