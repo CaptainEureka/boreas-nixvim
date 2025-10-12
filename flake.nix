@@ -53,6 +53,11 @@
             pkgs.statix
             pkgs.alejandra
           ];
+
+          git-hooks.hooks = {
+            alejandra.enable = true;
+            statix.enable = true;
+          };
         };
 
         packages = {
