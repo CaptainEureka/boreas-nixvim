@@ -8,10 +8,8 @@
     ./copilot
     ./dressing
     ./fzf-lua
-    ./gitlinker
     ./gitsigns
     ./hardtime
-    # ./indent-blankline
     ./lsp
     ./lualine
     ./luasnip
@@ -38,6 +36,7 @@
     flash.enable = true;
     fidget.enable = true;
     fugitive.enable = true;
+    gitlinker.enable = true;
     hmts.enable = true;
     nix.enable = true;
   };
