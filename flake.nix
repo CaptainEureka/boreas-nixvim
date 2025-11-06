@@ -31,7 +31,7 @@
       }: let
         nixvim = inputs.nixvim.legacyPackages.${system};
         overlays = [
-          # inputs.neovim-nightly-overlay.overlays.default
+          inputs.neovim-nightly-overlay.overlays.default
         ];
       in {
         treefmt = {
@@ -63,15 +63,26 @@
           };
         };
 
-        packages = {
-          default = nixvim.makeNixvimWithModule {
-            inherit pkgs;
-            module = {
-              imports = [
-                ./boreas
-                {nixpkgs.overlays = overlays;}
-              ];
+        packages = let
+          makeNixvim = {
+            modules,
+            extraModules ? [],
+            extraConfig ? {},
+          }:
+            nixvim.makeNixvimWithModule {
+              inherit pkgs;
+              module =
+                {
+                  imports = modules ++ extraModules;
+                }
+                // extraConfig;
             };
+        in {
+          default = makeNixvim {
+            modules = [./boreas];
+          };
+          nightly = makeNixvim {
+            modules = [./boreas {nixpkgs = {inherit overlays;};}];
           };
         };
       };
