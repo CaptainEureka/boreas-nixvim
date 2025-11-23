@@ -5,7 +5,6 @@
   ...
 }: {
   imports = [
-    ./copilot
     ./dressing
     ./fzf-lua
     ./gitsigns
@@ -18,7 +17,6 @@
     ./mini
     ./noice
     ./notify
-    ./octo
     ./oil
     ./rustacean-nvim
     ./schemastore
@@ -35,7 +33,6 @@
     barbecue.enable = true;
     flash.enable = true;
     fidget.enable = true;
-    fugitive.enable = true;
     gitlinker.enable = true;
     hmts.enable = true;
     nix.enable = true;
