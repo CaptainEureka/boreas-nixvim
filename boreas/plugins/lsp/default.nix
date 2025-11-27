@@ -1,9 +1,10 @@
 {
-  lib,
   pkgs,
-  helpers,
+  lib,
   ...
-}: {
+}: let
+  helpers = lib.nixvim;
+in {
   imports = [
     ./fastaction.nix
     ./lint.nix
