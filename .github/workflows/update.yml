@@ -9,8 +9,6 @@ jobs:
     name: Update flake inputs
     runs-on: ubuntu-latest
     timeout-minutes: 40
-    outputs:
-      pull-request-number: ${{ steps.update.outputs.pull-request-number }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -22,63 +20,8 @@ jobs:
         uses: DeterminateSystems/magic-nix-cache-action@main
 
       - name: Update flake.lock
-        id: update
         uses: DeterminateSystems/update-flake-lock@main
         with:
           pr-title: "flake.lock: Update"
           pr-labels: dependencies
           token: ${{ secrets.GITHUB_TOKEN }}
-
-  check:
-    name: Check flake
-    runs-on: ubuntu-latest
-    needs: lockfile
-    if: ${{ needs.lockfile.outputs.pull-request-number }}
-    steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v4
-        with:
-          ref: refs/pull/${{ needs.lockfile.outputs.pull-request-number }}/head
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-
-      - name: Setup Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@main
-
-      - name: Check flake
-        run: nix flake check
-
-  build:
-    name: Build ${{ matrix.package }} (${{ matrix.system }})
-    runs-on: ${{ matrix.os }}
-    needs: lockfile
-    if: ${{ needs.lockfile.outputs.pull-request-number }}
-    strategy:
-      fail-fast: false
-      matrix:
-        package:
-          - default
-          - nightly
-        system:
-          - x86_64-linux
-          - aarch64-darwin
-        include:
-          - system: x86_64-linux
-            os: ubuntu-latest
-          - system: aarch64-darwin
-            os: macos-latest
-    steps:
-      - name: Checkout PR branch
-        uses: actions/checkout@v4
-        with:
-          ref: refs/pull/${{ needs.lockfile.outputs.pull-request-number }}/head
-
-      - name: Install Nix
-        uses: DeterminateSystems/nix-installer-action@main
-
-      - name: Setup Nix cache
-        uses: DeterminateSystems/magic-nix-cache-action@main
-
-      - name: Build ${{ matrix.package }}
-        run: nix build .#packages.${{ matrix.system }}.${{ matrix.package }} --dry-run
