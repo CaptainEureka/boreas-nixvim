@@ -3,7 +3,7 @@
 
   inputs = {
     systems.url = "github:nix-systems/default";
-    nixpkgs.url = "github:NixOS/nixpkgs/master";
+    nixpkgs.url = "github:NixOS/nixpkgs/ee889ba3c108edae7bb38a33a0fa33f318aa09e9";
     treefmt-nix.url = "github:numtide/treefmt-nix";
     nixvim.url = "github:nix-community/nixvim";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
