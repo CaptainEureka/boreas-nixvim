@@ -59,7 +59,9 @@ in {
           ];
         };
         jsonls.enable = true;
+        just.enable = true;
         marksman.enable = true;
+        nickel_ls.enable = true;
         nil_ls = {
           enable = true;
           settings = {
@@ -96,6 +98,7 @@ in {
             };
           };
         };
+        nushell.enable = true;
         lua_ls.enable = true;
         ruff = {
           enable = true;
