@@ -1,7 +1,7 @@
 {
   plugins = {
     treesitter = {
-      enable = true;
+      enable = false;
       settings = {
         indent.enable = true;
         highlight.enable = true;
@@ -10,12 +10,12 @@
     };
 
     treesitter-context = {
-      enable = true;
+      enable = false;
       settings.multiline_threshold = 1;
     };
 
     treesitter-textobjects = {
-      enable = true;
+      enable = false;
       settings = {
         lsp_interop = {
           enable = true;
