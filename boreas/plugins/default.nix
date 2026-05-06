@@ -34,7 +34,7 @@
     flash.enable = true;
     fidget.enable = true;
     gitlinker.enable = true;
-    hmts.enable = true;
+    hmts.enable = false;
     nix.enable = true;
   };
 }
