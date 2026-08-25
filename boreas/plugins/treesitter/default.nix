@@ -7,7 +7,6 @@
         disable = ["typescript" "typescriptreact" "javascript" "javascriptreact"];
       };
       highlight.enable = true;
-      folding.enable = true;
       nixvimInjections = true;
     };
 
