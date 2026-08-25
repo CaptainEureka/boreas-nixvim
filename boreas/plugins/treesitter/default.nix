@@ -2,10 +2,12 @@
   plugins = {
     treesitter = {
       enable = true;
-      settings = {
-        indent.enable = true;
-        highlight.enable = true;
+      indent = {
+        enable = true;
+        disable = ["typescript" "typescriptreact" "javascript" "javascriptreact"];
       };
+      highlight.enable = true;
+      folding.enable = true;
       nixvimInjections = true;
     };
 
