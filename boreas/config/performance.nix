@@ -10,6 +10,7 @@
         "blink.cmp"
         "catppuccin-nvim"
         "conform.nvim"
+        "fzf.lua"
         "nvim-treesitter"
         "nvim-treesitter-context"
         "snacks.nvim"
