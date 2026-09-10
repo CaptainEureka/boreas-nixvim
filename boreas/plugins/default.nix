@@ -25,6 +25,7 @@
     ./telescope
     ./treesitter
     ./trouble
+    ./tv
     ./typescript-tools
     ./which-key
   ];

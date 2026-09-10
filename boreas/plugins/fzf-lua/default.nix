@@ -4,7 +4,7 @@
   ...
 }: {
   plugins.fzf-lua = {
-    enable = true;
+    enable = false;
     lazyLoad.enable = false;
     settings = {
       winopts = {
