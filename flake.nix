@@ -27,10 +27,19 @@
         system,
         ...
       }: let
-        nixvim = inputs.nixvim.legacyPackages.${system};
         overlays = [
           inputs.neovim-nightly-overlay.overlays.default
         ];
+
+        boreas = inputs.nixvim.lib.evalNixvim {
+          inherit system;
+          modules = [./boreas];
+        };
+        boreas-nightly = boreas.extendModules {
+          modules = [
+            {nixpkgs = {inherit overlays;};}
+          ];
+        };
       in {
         treefmt = {
           projectRootFile = "flake.nix";
@@ -41,27 +50,11 @@
           };
         };
 
-        packages = let
-          makeNixvim = {
-            modules,
-            extraModules ? [],
-            extraConfig ? {},
-          }:
-            nixvim.makeNixvimWithModule {
-              inherit pkgs;
-              module =
-                {
-                  imports = modules ++ extraModules;
-                }
-                // extraConfig;
-            };
-        in {
-          default = makeNixvim {
-            modules = [./boreas];
-          };
-          nightly = makeNixvim {
-            modules = [./boreas {nixpkgs = {inherit overlays;};}];
-          };
+        checks = boreas.config.build.test;
+
+        packages = {
+          default = boreas.config.build.package;
+          nightly = boreas-nightly.config.build.package;
         };
       };
     };
