@@ -4,7 +4,7 @@
   ...
 }: {
   plugins.tv = {
-    enable = true;
+    enable = false;
   };
 
   keymaps = let
