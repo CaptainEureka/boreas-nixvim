@@ -9,6 +9,7 @@
         char = "▎";
       };
       input.enable = true;
+      picker.enable = true;
       scope.enable = true;
       scroll.enable = true;
       zen.enable = true;

@@ -7,6 +7,7 @@
 }: {
   imports = [
     ./dressing
+    ./fff
     ./fzf-lua
     ./gitsigns
     ./hardtime

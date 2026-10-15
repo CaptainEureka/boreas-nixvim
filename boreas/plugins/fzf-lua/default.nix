@@ -4,7 +4,7 @@
   ...
 }: {
   plugins.fzf-lua = {
-    enable = true;
+    enable = false;
     settings = {
       winopts = {
         width = 0.8;
