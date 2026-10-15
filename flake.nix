@@ -56,6 +56,12 @@
           };
         };
 
+        devShells.default = pkgs.mkShellNoCC {
+          packages = [
+            pkgs.nix-output-monitor
+          ];
+        };
+
         checks = boreas.config.build.test;
 
         packages = {
