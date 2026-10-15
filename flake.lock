@@ -202,6 +202,7 @@
         "nixpkgs": "nixpkgs_2",
         "nixvim": "nixvim",
         "systems": "systems_2",
+        "tree-sitter-cedar": "tree-sitter-cedar",
         "treefmt-nix": "treefmt-nix"
       }
     },
@@ -234,6 +235,23 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "tree-sitter-cedar": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1785619553,
+        "narHash": "sha256-EGANGn6ZngjSr7BNwJah45rQI/+taStJyEDhZh1W0ds=",
+        "owner": "SwornSystems",
+        "repo": "tree-sitter-cedar",
+        "rev": "112e886c976951095b43ad91929269f9c1cca17d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "SwornSystems",
+        "ref": "v0.12.0",
+        "repo": "tree-sitter-cedar",
         "type": "github"
       }
     },

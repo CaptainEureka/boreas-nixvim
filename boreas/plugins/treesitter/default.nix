@@ -1,4 +1,24 @@
 {
+  pkgs,
+  config,
+  inputs,
+  lib,
+  ...
+}: let
+  mkCedarGrammar = language:
+    pkgs.tree-sitter.buildGrammar {
+      inherit language;
+      src = inputs.tree-sitter-cedar;
+      version = inputs.tree-sitter-cedar.shortRev;
+      meta.homepage = "https://github.com/SwornSystems/tree-sitter-cedar";
+      location = language;
+    };
+  cedarGrammars = [
+    (mkCedarGrammar "cedar")
+    (mkCedarGrammar "cedarschema")
+    (mkCedarGrammar "cedarentities")
+  ];
+in {
   plugins = {
     treesitter = {
       enable = true;
@@ -8,6 +28,7 @@
       };
       highlight.enable = true;
       nixvimInjections = true;
+      grammarPackages = config.plugins.treesitter.package.allGrammars ++ cedarGrammars;
     };
 
     treesitter-context = {

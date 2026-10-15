@@ -8,6 +8,11 @@
     nixvim.url = "github:nix-community/nixvim";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    tree-sitter-cedar = {
+      url = "github:SwornSystems/tree-sitter-cedar/v0.12.0";
+      flake = false;
+    };
   };
 
   outputs = {
@@ -34,6 +39,7 @@
         boreas = inputs.nixvim.lib.evalNixvim {
           inherit system;
           modules = [./boreas];
+          extraSpecialArgs = {inherit inputs;};
         };
         boreas-nightly = boreas.extendModules {
           modules = [
