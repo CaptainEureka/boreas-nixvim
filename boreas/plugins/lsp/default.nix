@@ -9,6 +9,7 @@ in {
     ./fastaction.nix
     ./lint.nix
     ./conform.nix
+    ./nvim-metals.nix
   ];
 
   plugins = {

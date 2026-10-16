@@ -8,7 +8,6 @@
   imports = [
     ./dressing
     ./fff
-    ./fzf-lua
     ./gitsigns
     ./hardtime
     ./lsp
@@ -24,10 +23,8 @@
     ./schemastore
     ./smart-splits
     ./snacks
-    ./telescope
     ./treesitter
     ./trouble
-    ./tv
     ./typescript-tools
     ./which-key
   ];
